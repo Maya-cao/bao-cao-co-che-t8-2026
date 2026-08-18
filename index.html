@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Báo cáo cơ chế thưởng R12W T8/2026</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root {
+  --bg:#f7f7fb; --card:#ffffff; --text:#1c1c28; --muted:#666a80; --border:#e4e4ee;
+  --accent:#e0533d; --accent-soft:#fdeae6; --green:#1f8a4c; --green-soft:#e8f6ee;
+  --amber:#b8860b; --amber-soft:#fdf3dc;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:#15151d; --card:#1e1e2a; --text:#eceef5; --muted:#9a9db3; --border:#33344a;
+    --accent:#ff7a5c; --accent-soft:#3a2420; --green:#4ade80; --green-soft:#193826;
+    --amber:#e8c15a; --amber-soft:#3a3016;
+  }
+}
+:root[data-theme="dark"] {
+  --bg:#15151d; --card:#1e1e2a; --text:#eceef5; --muted:#9a9db3; --border:#33344a;
+  --accent:#ff7a5c; --accent-soft:#3a2420; --green:#4ade80; --green-soft:#193826;
+  --amber:#e8c15a; --amber-soft:#3a3016;
+}
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+.wrap { max-width:980px; margin:0 auto; padding:24px 16px 60px; }
+header h1 { font-size:1.4rem; margin:0 0 4px; }
+header p { color:var(--muted); margin:0 0 4px; font-size:.92rem; }
+.summary { display:flex; gap:12px; flex-wrap:wrap; margin:16px 0 20px; }
+.summary .box { flex:1; min-width:140px; background:var(--card); border:1px solid var(--border); border-radius:12px; padding:12px 14px; }
+.summary .box .num { font-size:1.25rem; font-weight:700; color:var(--accent); }
+.summary .box .lbl { font-size:.78rem; color:var(--muted); }
+.tabs { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:16px; position:sticky; top:0; background:var(--bg); padding:8px 0; z-index:5; }
+.tabbtn { border:1px solid var(--border); background:var(--card); color:var(--text); padding:8px 14px; border-radius:999px; font-size:.85rem; cursor:pointer; }
+.tabbtn.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+.panel { display:none; }
+.panel.active { display:block; }
+.card { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:16px; margin-bottom:16px; overflow-x:auto; }
+.card h3 { margin:0 0 10px; font-size:1rem; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.card.near { border-color:var(--amber); }
+.card.near h3 { color:var(--amber); }
+.tag { font-size:.72rem; background:var(--accent-soft); color:var(--accent); padding:3px 8px; border-radius:6px; font-weight:600; }
+.note { color:var(--muted); font-size:.85rem; margin:0 0 14px; }
+table { width:100%; border-collapse:collapse; font-size:.86rem; min-width:480px; }
+th,td { text-align:left; padding:7px 8px; border-bottom:1px solid var(--border); white-space:nowrap; }
+td:first-child, th:first-child { white-space:normal; }
+th { color:var(--muted); font-weight:600; font-size:.75rem; text-transform:uppercase; }
+td.num { text-align:right; font-variant-numeric:tabular-nums; }
+td.bonus { text-align:right; color:var(--green); font-weight:700; }
+td.gap { color:var(--amber); white-space:normal; }
+td.empty { color:var(--muted); text-align:center; }
+footer { color:var(--muted); font-size:.78rem; margin-top:24px; line-height:1.6; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Báo cáo cơ chế thưởng chăm sóc khách quen R12W — Tháng 8/2026</h1>
+  <p>Số liệu áp dụng từ ngày 01/08 đến 17/08/2026 (checkpoint giữa kỳ, chưa phải số chốt cuối tháng).</p>
+</header>
+
+<div class="summary">
+  <div class="box"><div class="num">30.900.000đ</div><div class="lbl">Tổng tiền thưởng tạm tính đến 17/8</div></div>
+  <div class="box"><div class="num">40.600.000đ</div><div class="lbl">Ngân sách tối đa cả tháng</div></div>
+  <div class="box"><div class="num">4</div><div class="lbl">Chương trình đang chạy</div></div>
+</div>
+
+<div class="tabs"><button class="tabbtn active" onclick="showTab(0)">Cơ chế 1: NV tỷ lệ book</button><button class="tabbtn" onclick="showTab(1)">Cơ chế 2: NV khách quay lại</button><button class="tabbtn" onclick="showTab(2)">Cơ chế 3: SM KPI salon</button><button class="tabbtn" onclick="showTab(3)">Cơ chế 4: Giảm chờ lâu</button></div>
+<div class="panel active" id="panel0">
+<div class="card">
+  <h3>Top 2 NV tỷ lệ book &gt;35% <span class="tag">500.000đ/NV</span></h3>
+  <table><thead><tr><th>Nhân viên</th><th>Salon</th><th>Liên lạc</th><th>Có bill 7 ngày</th><th>Tỷ lệ</th><th>Thưởng</th></tr></thead>
+  <tbody><tr><td>Đặng Thị Ngọc Anh</td><td>116 TK</td><td>121</td><td>45</td><td class='num'>37.19%</td><td class='bonus'>500.000đ</td></tr><tr><td>Đinh Thị Bích Ánh</td><td>116 TK</td><td>215</td><td>77</td><td class='num'>35.81%</td><td class='bonus'>500.000đ</td></tr></tbody></table>
+</div>
+<div class="card">
+  <h3>Top 31/50 NV tỷ lệ book 22–35% <span class="tag">200.000đ/NV</span></h3>
+  <table><thead><tr><th>Nhân viên</th><th>Salon</th><th>Liên lạc</th><th>Có bill 7 ngày</th><th>Tỷ lệ</th><th>Thưởng</th></tr></thead>
+  <tbody><tr><td>Nguyễn Thị Thanh Mai</td><td>382 NT</td><td>292</td><td>96</td><td class='num'>32.88%</td><td class='bonus'>200.000đ</td></tr><tr><td>Đinh Thị Thùy Chinh</td><td>116 TK</td><td>118</td><td>38</td><td class='num'>32.2%</td><td class='bonus'>200.000đ</td></tr><tr><td>Võ Ngọc Thy Nhã</td><td>237 NTT</td><td>121</td><td>38</td><td class='num'>31.4%</td><td class='bonus'>200.000đ</td></tr><tr><td>Nguyễn Thị Thanh Hiền</td><td>116 TK</td><td>227</td><td>70</td><td class='num'>30.84%</td><td class='bonus'>200.000đ</td></tr><tr><td>Trần Lê Yến My</td><td>575 AC</td><td>104</td><td>31</td><td class='num'>29.81%</td><td class='bonus'>200.000đ</td></tr><tr><td>Vũ Trần Anh Thư</td><td>237 NTT</td><td>104</td><td>31</td><td class='num'>29.81%</td><td class='bonus'>200.000đ</td></tr><tr><td>Nguyễn Thị Thái Vi</td><td>575 AC</td><td>120</td><td>35</td><td class='num'>29.17%</td><td class='bonus'>200.000đ</td></tr><tr><td>Bùi Thị Mỹ Tâm</td><td>237 NTT</td><td>117</td><td>34</td><td class='num'>29.06%</td><td class='bonus'>200.000đ</td></tr><tr><td>Nguyễn Phan Thảo My</td><td>237 NTT</td><td>107</td><td>31</td><td class='num'>28.97%</td><td class='bonus'>200.000đ</td></tr><tr><td>Lê Thanh Hà</td><td>55A NVL</td><td>150</td><td>42</td><td class='num'>28.0%</td><td class='bonus'>200.000đ</td></tr><tr><td>Nguyễn Trọng Nghĩa</td><td>236 DBT</td><td>104</td><td>29</td><td class='num'>27.88%</td><td class='bonus'>200.000đ</td></tr><tr><td>Hà Thị Nương</td><td>116 TK</td><td>180</td><td>50</td><td class='num'>27.78%</td><td class='bonus'>200.000đ</td></tr><tr><td>Nguyễn Thị Thu Ngân</td><td>103 TN</td><td>105</td><td>29</td><td class='num'>27.62%</td><td class='bonus'>200.000đ</td></tr><tr><td>Nguyễn Thị Kim Ngân</td><td>401/1 NDT</td><td>131</td><td>36</td><td class='num'>27.48%</td><td class='bonus'>200.000đ</td></tr><tr><td>Nguyễn Thị Mỹ Tiên</td><td>8 CVL</td><td>217</td><td>59</td><td class='num'>27.19%</td><td class='bonus'>200.000đ</td></tr><tr><td>Phạm Thị Hải Anh</td><td>116 TK</td><td>223</td><td>60</td><td class='num'>26.91%</td><td class='bonus'>200.000đ</td></tr><tr><td>Thạch Thi Sa RemCTV</td><td>145 THT</td><td>101</td><td>27</td><td class='num'>26.73%</td><td class='bonus'>200.000đ</td></tr><tr><td>Nguyễn Gia Linh</td><td>55A NVL</td><td>139</td><td>37</td><td class='num'>26.62%</td><td class='bonus'>200.000đ</td></tr><tr><td>Nguyễn Thị Cẩm Hằng</td><td>8 CVL</td><td>139</td><td>37</td><td class='num'>26.62%</td><td class='bonus'>200.000đ</td></tr><tr><td>Trương Huỳnh Trung Nghĩa</td><td>708 LTT</td><td>158</td><td>42</td><td class='num'>26.58%</td><td class='bonus'>200.000đ</td></tr><tr><td>Bùi Việt Hưng</td><td>109 TQH</td><td>589</td><td>150</td><td class='num'>25.47%</td><td class='bonus'>200.000đ</td></tr><tr><td>Lê Triệu Vy</td><td>190 HB</td><td>181</td><td>46</td><td class='num'>25.41%</td><td class='bonus'>200.000đ</td></tr><tr><td>Đỗ Thị Ly</td><td>55A NVL</td><td>103</td><td>26</td><td class='num'>25.24%</td><td class='bonus'>200.000đ</td></tr><tr><td>Dương Quốc Khánh</td><td>99 TSN</td><td>113</td><td>28</td><td class='num'>24.78%</td><td class='bonus'>200.000đ</td></tr><tr><td>Lương Thị Thảo Nhi</td><td>312 LVS</td><td>107</td><td>26</td><td class='num'>24.3%</td><td class='bonus'>200.000đ</td></tr><tr><td>Nguyễn Thị Tường Vi</td><td>236 DBT</td><td>150</td><td>35</td><td class='num'>23.33%</td><td class='bonus'>200.000đ</td></tr><tr><td>Nguyễn Thị Minh Thư</td><td>237 NTT</td><td>108</td><td>25</td><td class='num'>23.15%</td><td class='bonus'>200.000đ</td></tr><tr><td>Trương Thị Thảo Lan </td><td>237 NTT</td><td>109</td><td>25</td><td class='num'>22.94%</td><td class='bonus'>200.000đ</td></tr><tr><td>Nguyễn Văn Mạnh</td><td>186 QT</td><td>184</td><td>42</td><td class='num'>22.83%</td><td class='bonus'>200.000đ</td></tr><tr><td>Nguyễn Thị Phú Quý</td><td>237 NTT</td><td>116</td><td>26</td><td class='num'>22.41%</td><td class='bonus'>200.000đ</td></tr><tr><td>Quách Tuyết Trang</td><td>730 TL10</td><td>367</td><td>82</td><td class='num'>22.34%</td><td class='bonus'>200.000đ</td></tr></tbody></table>
+</div>
+<div class="card near">
+  <h3>⏳ Sắp đạt (15–22%, còn thiếu để chạm mốc 22%)</h3>
+  <table><thead><tr><th>Nhân viên</th><th>Salon</th><th>Liên lạc</th><th>Có bill 7 ngày</th><th>Tỷ lệ</th><th>Còn thiếu</th></tr></thead>
+  <tbody><tr><td>Nguyễn Phương Linh</td><td>264 LLQ</td><td>101</td><td>22</td><td class='num'>21.78%</td><td class='gap'>cần chăm thêm ~1 khách có bill để đạt 22%</td></tr><tr><td>Nguyễn Thị Hằng Nga</td><td>12 LDT</td><td>101</td><td>22</td><td class='num'>21.78%</td><td class='gap'>cần chăm thêm ~1 khách có bill để đạt 22%</td></tr><tr><td>Nguyễn Thu Phương</td><td>202 DC</td><td>181</td><td>39</td><td class='num'>21.55%</td><td class='gap'>cần chăm thêm ~1 khách có bill để đạt 22%</td></tr><tr><td>Nguyễn Anh Tú</td><td>29 HB</td><td>104</td><td>22</td><td class='num'>21.15%</td><td class='gap'>cần chăm thêm ~1 khách có bill để đạt 22%</td></tr><tr><td>Lê Thị Thu Trang</td><td>39 HBT</td><td>120</td><td>25</td><td class='num'>20.83%</td><td class='gap'>cần chăm thêm ~2 khách có bill để đạt 22%</td></tr><tr><td>Võ Tấn Vàng</td><td>708 LTT</td><td>125</td><td>26</td><td class='num'>20.8%</td><td class='gap'>cần chăm thêm ~2 khách có bill để đạt 22%</td></tr><tr><td>Võ Thị Thu Ngân</td><td>237 NTT</td><td>106</td><td>21</td><td class='num'>19.81%</td><td class='gap'>cần chăm thêm ~3 khách có bill để đạt 22%</td></tr><tr><td>Lê Thị Mai Ly</td><td>401/1 NDT</td><td>112</td><td>22</td><td class='num'>19.64%</td><td class='gap'>cần chăm thêm ~3 khách có bill để đạt 22%</td></tr><tr><td>Nguyễn Thị Hồng Ngân </td><td>420 HTP</td><td>169</td><td>33</td><td class='num'>19.53%</td><td class='gap'>cần chăm thêm ~5 khách có bill để đạt 22%</td></tr><tr><td>ngan.sksup</td><td>65 CD</td><td>134</td><td>26</td><td class='num'>19.4%</td><td class='gap'>cần chăm thêm ~4 khách có bill để đạt 22%</td></tr><tr><td>Lê Thị Kiều Oanh</td><td>420 HTP</td><td>168</td><td>32</td><td class='num'>19.05%</td><td class='gap'>cần chăm thêm ~5 khách có bill để đạt 22%</td></tr><tr><td>Nguyễn Thị Diễm CTV</td><td>312 LVS</td><td>137</td><td>26</td><td class='num'>18.98%</td><td class='gap'>cần chăm thêm ~5 khách có bill để đạt 22%</td></tr><tr><td>Nguyễn Thị Huỳnh Như</td><td>312 LVS</td><td>193</td><td>35</td><td class='num'>18.13%</td><td class='gap'>cần chăm thêm ~8 khách có bill để đạt 22%</td></tr><tr><td>Nguyễn Thị Thúy Hằng</td><td>927 HG</td><td>134</td><td>23</td><td class='num'>17.16%</td><td class='gap'>cần chăm thêm ~7 khách có bill để đạt 22%</td></tr><tr><td>Lê Thị Hồng Dung</td><td>76 PVH</td><td>158</td><td>27</td><td class='num'>17.09%</td><td class='gap'>cần chăm thêm ~8 khách có bill để đạt 22%</td></tr><tr><td>Nguyễn Thị Như Ý </td><td>145 THT</td><td>101</td><td>17</td><td class='num'>16.83%</td><td class='gap'>cần chăm thêm ~6 khách có bill để đạt 22%</td></tr><tr><td>Trần Thị Vân Anh</td><td>29 HB</td><td>152</td><td>25</td><td class='num'>16.45%</td><td class='gap'>cần chăm thêm ~9 khách có bill để đạt 22%</td></tr><tr><td>Đỗ Thuỳ Linh</td><td>36 N1 BD</td><td>195</td><td>31</td><td class='num'>15.9%</td><td class='gap'>cần chăm thêm ~12 khách có bill để đạt 22%</td></tr><tr><td>Võ Thị Hồng</td><td>1180 QT</td><td>101</td><td>16</td><td class='num'>15.84%</td><td class='gap'>cần chăm thêm ~7 khách có bill để đạt 22%</td></tr><tr><td>Nguyễn Phan Thúy Hiền</td><td>36 N1 BD</td><td>255</td><td>40</td><td class='num'>15.69%</td><td class='gap'>cần chăm thêm ~17 khách có bill để đạt 22%</td></tr><tr><td>Ngô Mỹ Xuyến</td><td>1371 PVT</td><td>195</td><td>30</td><td class='num'>15.38%</td><td class='gap'>cần chăm thêm ~13 khách có bill để đạt 22%</td></tr></tbody></table>
+</div>
+</div><div class="panel" id="panel1">
+<p class="note">Chỉ tính Stylist/Skinner (không tính lễ tân/thu ngân). Vào cả 2 danh sách được cộng dồn tối đa 1.000.000đ.</p>
+<div class="card">
+  <h3>Danh sách A — Top 10 NV có nhiều khách quay lại (&gt;1 lần) nhất <span class="tag">500.000đ/NV</span></h3>
+  <table><thead><tr><th>Nhân viên</th><th>Salon</th><th>Vai trò</th><th>Số khách quay lại</th></tr></thead>
+  <tbody><tr><td>Đặng Đình Tân</td><td>55A NVL</td><td>Stylist</td><td class='num'>25 khách</td></tr><tr><td>Nguyễn Hoàng Sơn</td><td>382 NT</td><td>Stylist</td><td class='num'>16 khách</td></tr><tr><td>Lý Văn Bắc</td><td>362 NGT BN</td><td>Stylist</td><td class='num'>14 khách</td></tr><tr><td>Nguyễn Như Long</td><td>4 LQD BN</td><td>Stylist</td><td class='num'>12 khách</td></tr><tr><td>Đỗ Văn Hùng</td><td>10 TP</td><td>Stylist</td><td class='num'>12 khách</td></tr><tr><td>Nguyễn Việt Hoàng </td><td>168 NVC</td><td>Stylist</td><td class='num'>12 khách</td></tr><tr><td>Nguyễn Thị Thuỳ Trang</td><td>55A NVL</td><td>Skinner</td><td class='num'>12 khách</td></tr><tr><td>Vũ Thị Minh</td><td>382 NT</td><td>Skinner</td><td class='num'>12 khách</td></tr><tr><td>Dương Văn Mạnh</td><td>304 NT TH</td><td>Stylist</td><td class='num'>11 khách</td></tr><tr><td>Cao Thị Kim Chi</td><td>927 HG</td><td>Skinner</td><td class='num'>11 khách</td></tr></tbody></table>
+</div>
+<div class="card">
+  <h3>Danh sách B — Top 10 NV có tổng lượt phục vụ khách quay lại cao nhất <span class="tag">500.000đ/NV</span></h3>
+  <table><thead><tr><th>Nhân viên</th><th>Salon</th><th>Vai trò</th><th>Tổng lượt phục vụ</th></tr></thead>
+  <tbody><tr><td>Đặng Đình Tân</td><td>55A NVL</td><td>Stylist</td><td class='num'>62 lượt</td></tr><tr><td>Nguyễn Hoàng Sơn</td><td>382 NT</td><td>Stylist</td><td class='num'>34 lượt</td></tr><tr><td>Ngô Thị Nhung</td><td>173 TN</td><td>Skinner</td><td class='num'>33 lượt</td></tr><tr><td>Trang Thị Hồng An</td><td>145 THT</td><td>Skinner</td><td class='num'>33 lượt</td></tr><tr><td>Lý Văn Bắc</td><td>362 NGT BN</td><td>Stylist</td><td class='num'>31 lượt</td></tr><tr><td>Vũ Thị Minh</td><td>382 NT</td><td>Skinner</td><td class='num'>31 lượt</td></tr><tr><td>Nguyễn Thị Thuỳ Trang</td><td>55A NVL</td><td>Skinner</td><td class='num'>30 lượt</td></tr><tr><td>Phạm Thị Huyền My</td><td>65 CD</td><td>Skinner</td><td class='num'>29 lượt</td></tr><tr><td>Cao Thị Kim Chi</td><td>927 HG</td><td>Skinner</td><td class='num'>28 lượt</td></tr><tr><td>Dương Văn Mạnh</td><td>304 NT TH</td><td>Stylist</td><td class='num'>27 lượt</td></tr></tbody></table>
+</div>
+<div class="card near">
+  <h3>⏳ Sắp đạt danh sách A (hạng 11–20)</h3>
+  <table><thead><tr><th>Nhân viên</th><th>Salon</th><th>Vai trò</th><th>Số khách quay lại</th><th>Còn thiếu</th></tr></thead>
+  <tbody><tr><td>NGUYỄN VĂN LÂM</td><td>12 LDT</td><td>Stylist</td><td class='num'>11 khách</td><td class='gap'>còn thiếu 1 khách quay lại</td></tr><tr><td>Hồ Sỹ Khánh </td><td>202 DC</td><td>Stylist</td><td class='num'>11 khách</td><td class='gap'>còn thiếu 1 khách quay lại</td></tr><tr><td>Phạm Thị Huyền My</td><td>65 CD</td><td>Skinner</td><td class='num'>11 khách</td><td class='gap'>còn thiếu 1 khách quay lại</td></tr><tr><td>Ngô Mỹ Huyền </td><td>32 NAT</td><td>Skinner</td><td class='num'>11 khách</td><td class='gap'>còn thiếu 1 khách quay lại</td></tr><tr><td>Tăng Đức Phi</td><td>103 TN</td><td>Stylist</td><td class='num'>10 khách</td><td class='gap'>còn thiếu 2 khách quay lại</td></tr><tr><td>Võ Thị Hồng</td><td>1180 QT</td><td>Skinner</td><td class='num'>10 khách</td><td class='gap'>còn thiếu 2 khách quay lại</td></tr><tr><td>Sỳ Trương Bình</td><td>575 AC</td><td>Stylist</td><td class='num'>10 khách</td><td class='gap'>còn thiếu 2 khách quay lại</td></tr><tr><td>Nguyễn Thị Nga</td><td>80 PL BD</td><td>Skinner</td><td class='num'>9 khách</td><td class='gap'>còn thiếu 3 khách quay lại</td></tr><tr><td>Nguyễn Phương Thảo</td><td>168 NVC</td><td>Skinner</td><td class='num'>9 khách</td><td class='gap'>còn thiếu 3 khách quay lại</td></tr><tr><td>Nguyễn Văn Phúc</td><td>109 TQH</td><td>Stylist</td><td class='num'>9 khách</td><td class='gap'>còn thiếu 3 khách quay lại</td></tr></tbody></table>
+</div>
+<div class="card near">
+  <h3>⏳ Sắp đạt danh sách B (hạng 11–20)</h3>
+  <table><thead><tr><th>Nhân viên</th><th>Salon</th><th>Vai trò</th><th>Tổng lượt</th><th>Còn thiếu</th></tr></thead>
+  <tbody><tr><td>Võ Thị Hồng</td><td>1180 QT</td><td>Skinner</td><td class='num'>27 lượt</td><td class='gap'>còn thiếu 1 lượt phục vụ</td></tr><tr><td>Đỗ Văn Hùng</td><td>10 TP</td><td>Stylist</td><td class='num'>27 lượt</td><td class='gap'>còn thiếu 1 lượt phục vụ</td></tr><tr><td>Nguyễn Như Long</td><td>4 LQD BN</td><td>Stylist</td><td class='num'>26 lượt</td><td class='gap'>còn thiếu 2 lượt phục vụ</td></tr><tr><td>NGUYỄN VĂN LÂM</td><td>12 LDT</td><td>Stylist</td><td class='num'>26 lượt</td><td class='gap'>còn thiếu 2 lượt phục vụ</td></tr><tr><td>Nguyễn Thị Nga</td><td>80 PL BD</td><td>Skinner</td><td class='num'>25 lượt</td><td class='gap'>còn thiếu 3 lượt phục vụ</td></tr><tr><td>Nguyễn Việt Hoàng </td><td>168 NVC</td><td>Stylist</td><td class='num'>25 lượt</td><td class='gap'>còn thiếu 3 lượt phục vụ</td></tr><tr><td>Ngô Mỹ Huyền </td><td>32 NAT</td><td>Skinner</td><td class='num'>24 lượt</td><td class='gap'>còn thiếu 4 lượt phục vụ</td></tr><tr><td>Vũ Văn Tuyên</td><td>148 TD</td><td>Stylist</td><td class='num'>23 lượt</td><td class='gap'>còn thiếu 5 lượt phục vụ</td></tr><tr><td>Trần Văn Phú</td><td>65 CD</td><td>Stylist</td><td class='num'>23 lượt</td><td class='gap'>còn thiếu 5 lượt phục vụ</td></tr><tr><td>Nguyễn Thị Thúy Hằng</td><td>927 HG</td><td>Skinner</td><td class='num'>23 lượt</td><td class='gap'>còn thiếu 5 lượt phục vụ</td></tr></tbody></table>
+</div>
+</div><div class="panel" id="panel2">
+<div class="card">
+  <h3>85-87% <span class="tag">300.000đ/salon — tối đa 10 salon</span></h3>
+  <table><thead><tr><th>Salon</th><th>GĐKV</th><th>Mục tiêu</th><th>Thực hiện</th><th>%Đạt</th><th>Thưởng</th></tr></thead>
+  <tbody><tr><td>401/1 NDT</td><td>Nguyễn Việt Cường GDKV</td><td class='num'>840</td><td class='num'>728</td><td class='num'>86.67%</td><td class='bonus'>300.000đ</td></tr><tr><td>341 XVNT</td><td>Tống Xuân Quyền GDKV</td><td class='num'>600</td><td class='num'>520</td><td class='num'>86.67%</td><td class='bonus'>300.000đ</td></tr><tr><td>55A NVL</td><td>Đoàn Trung Đức GDKV</td><td class='num'>992</td><td class='num'>858</td><td class='num'>86.49%</td><td class='bonus'>300.000đ</td></tr><tr><td>927 HG</td><td>Nguyễn Thanh Sang GDKV</td><td class='num'>1974</td><td class='num'>1706</td><td class='num'>86.42%</td><td class='bonus'>300.000đ</td></tr><tr><td>76 PVH</td><td>Trịnh Văn Quang GDKV</td><td class='num'>808</td><td class='num'>694</td><td class='num'>85.89%</td><td class='bonus'>300.000đ</td></tr><tr><td>36 N1 BD</td><td>Nguyễn Việt Cường GDKV</td><td class='num'>801</td><td class='num'>687</td><td class='num'>85.77%</td><td class='bonus'>300.000đ</td></tr><tr><td>708 LTT</td><td>Nguyễn Thanh Sang GDKV</td><td class='num'>814</td><td class='num'>692</td><td class='num'>85.01%</td><td class='bonus'>300.000đ</td></tr></tbody></table>
+</div><div class="card">
+  <h3>87-90% <span class="tag">500.000đ/salon — tối đa 3 salon</span></h3>
+  <table><thead><tr><th>Salon</th><th>GĐKV</th><th>Mục tiêu</th><th>Thực hiện</th><th>%Đạt</th><th>Thưởng</th></tr></thead>
+  <tbody><tr><td>4 LQD BN</td><td>Nguyễn Như Quỳnh GDKV</td><td class='num'>404</td><td class='num'>357</td><td class='num'>88.37%</td><td class='bonus'>500.000đ</td></tr><tr><td>58 NVC NA</td><td>Nguyễn Thị Huệ GDKV</td><td class='num'>664</td><td class='num'>581</td><td class='num'>87.5%</td><td class='bonus'>500.000đ</td></tr><tr><td>103 TN</td><td>Nguyễn Việt Cường GDKV</td><td class='num'>2904</td><td class='num'>2530</td><td class='num'>87.12%</td><td class='bonus'>500.000đ</td></tr></tbody></table>
+</div><div class="card">
+  <h3>90-95% <span class="tag">700.000đ/salon — tối đa 3 salon</span></h3>
+  <table><thead><tr><th>Salon</th><th>GĐKV</th><th>Mục tiêu</th><th>Thực hiện</th><th>%Đạt</th><th>Thưởng</th></tr></thead>
+  <tbody><tr><td>148 TD</td><td>Phan Thị Hồng Gấm GDKV</td><td class='num'>634</td><td class='num'>599</td><td class='num'>94.48%</td><td class='bonus'>700.000đ</td></tr><tr><td>595 BT TH</td><td>Nguyễn Thị Huệ GDKV</td><td class='num'>486</td><td class='num'>441</td><td class='num'>90.74%</td><td class='bonus'>700.000đ</td></tr><tr><td>50BT4 NPC LD</td><td>Phan Thị Hồng Gấm GDKV</td><td class='num'>1376</td><td class='num'>1245</td><td class='num'>90.48%</td><td class='bonus'>700.000đ</td></tr></tbody></table>
+</div><div class="card">
+  <h3>>=95% <span class="tag">1.000.000đ/salon — tối đa 3 salon</span></h3>
+  <table><thead><tr><th>Salon</th><th>GĐKV</th><th>Mục tiêu</th><th>Thực hiện</th><th>%Đạt</th><th>Thưởng</th></tr></thead>
+  <tbody><tr><td>11 PKT</td><td>Nguyễn Như Quỳnh GDKV</td><td class='num'>720</td><td class='num'>700</td><td class='num'>97.22%</td><td class='bonus'>1.000.000đ</td></tr><tr><td>173 TN</td><td>Phan Thị Hồng Gấm GDKV</td><td class='num'>1079</td><td class='num'>1026</td><td class='num'>95.09%</td><td class='bonus'>1.000.000đ</td></tr></tbody></table>
+</div>
+<div class="card near">
+  <h3>⏳ Sắp đạt (80–85%, còn thiếu để chạm mốc 85%)</h3>
+  <table><thead><tr><th>Salon</th><th>GĐKV</th><th>%Đạt hiện tại</th><th>Còn thiếu</th></tr></thead>
+  <tbody><tr><td>39 HBT</td><td>Phan Thị Hồng Gấm GDKV</td><td class='num'>84.86%</td><td class='gap'>còn thiếu 0.14% (~2 lượt) để chạm mốc 85%</td></tr><tr><td>1146 KVC</td><td>Nguyễn Việt Cường GDKV</td><td class='num'>84.84%</td><td class='gap'>còn thiếu 0.16% (~2 lượt) để chạm mốc 85%</td></tr><tr><td>62 LH</td><td>Đoàn Trung Đức GDKV</td><td class='num'>84.83%</td><td class='gap'>còn thiếu 0.17% (~2 lượt) để chạm mốc 85%</td></tr><tr><td>68 LN NA</td><td>Nguyễn Thị Huệ GDKV</td><td class='num'>84.52%</td><td class='gap'>còn thiếu 0.48% (~3 lượt) để chạm mốc 85%</td></tr><tr><td>168 NVC</td><td>Nguyễn Như Quỳnh GDKV</td><td class='num'>84.44%</td><td class='gap'>còn thiếu 0.56% (~11 lượt) để chạm mốc 85%</td></tr><tr><td>304 NT TH</td><td>Nguyễn Thị Huệ GDKV</td><td class='num'>83.96%</td><td class='gap'>còn thiếu 1.04% (~5 lượt) để chạm mốc 85%</td></tr><tr><td>8 CVL</td><td>Nguyễn Thanh Sang GDKV</td><td class='num'>83.89%</td><td class='gap'>còn thiếu 1.11% (~18 lượt) để chạm mốc 85%</td></tr><tr><td>202 DC</td><td>Phan Thị Hồng Gấm GDKV</td><td class='num'>83.75%</td><td class='gap'>còn thiếu 1.25% (~16 lượt) để chạm mốc 85%</td></tr><tr><td>255 NAN</td><td>Nguyễn Việt Cường GDKV</td><td class='num'>83.74%</td><td class='gap'>còn thiếu 1.26% (~15 lượt) để chạm mốc 85%</td></tr><tr><td>90 NH</td><td>Đoàn Trung Đức GDKV</td><td class='num'>83.3%</td><td class='gap'>còn thiếu 1.7% (~17 lượt) để chạm mốc 85%</td></tr><tr><td>362 NGT BN</td><td>Nguyễn Như Quỳnh GDKV</td><td class='num'>82.9%</td><td class='gap'>còn thiếu 2.1% (~35 lượt) để chạm mốc 85%</td></tr><tr><td>7 DTP LA</td><td>Tống Xuân Quyền GDKV</td><td class='num'>82.88%</td><td class='gap'>còn thiếu 2.12% (~12 lượt) để chạm mốc 85%</td></tr><tr><td>236 DBT</td><td>Tống Xuân Quyền GDKV</td><td class='num'>82.7%</td><td class='gap'>còn thiếu 2.3% (~31 lượt) để chạm mốc 85%</td></tr><tr><td>12 LDT</td><td>Trịnh Văn Quang GDKV</td><td class='num'>82.62%</td><td class='gap'>còn thiếu 2.38% (~31 lượt) để chạm mốc 85%</td></tr><tr><td>730 TL10</td><td>Nguyễn Thanh Sang GDKV</td><td class='num'>82.5%</td><td class='gap'>còn thiếu 2.5% (~43 lượt) để chạm mốc 85%</td></tr><tr><td>363 LNQ TN</td><td>Phan Thị Hồng Gấm GDKV</td><td class='num'>82.39%</td><td class='gap'>còn thiếu 2.61% (~22 lượt) để chạm mốc 85%</td></tr><tr><td>65 CD</td><td>Đoàn Trung Đức GDKV</td><td class='num'>82.19%</td><td class='gap'>còn thiếu 2.81% (~21 lượt) để chạm mốc 85%</td></tr><tr><td>1371 PVT</td><td>Nguyễn Việt Cường GDKV</td><td class='num'>82.18%</td><td class='gap'>còn thiếu 2.82% (~19 lượt) để chạm mốc 85%</td></tr><tr><td>116 TK</td><td>Đoàn Trung Đức GDKV</td><td class='num'>81.7%</td><td class='gap'>còn thiếu 3.3% (~74 lượt) để chạm mốc 85%</td></tr><tr><td>80 PL BD</td><td>Nguyễn Việt Cường GDKV</td><td class='num'>81.52%</td><td class='gap'>còn thiếu 3.48% (~46 lượt) để chạm mốc 85%</td></tr><tr><td>264 LLQ</td><td>Phan Thị Hồng Gấm GDKV</td><td class='num'>81.42%</td><td class='gap'>còn thiếu 3.58% (~37 lượt) để chạm mốc 85%</td></tr><tr><td>25 TD</td><td>Tống Xuân Quyền GDKV</td><td class='num'>81.31%</td><td class='gap'>còn thiếu 3.69% (~64 lượt) để chạm mốc 85%</td></tr><tr><td>483 TN</td><td>Trịnh Văn Quang GDKV</td><td class='num'>81.28%</td><td class='gap'>còn thiếu 3.72% (~42 lượt) để chạm mốc 85%</td></tr><tr><td>10 TP</td><td>Nguyễn Như Quỳnh GDKV</td><td class='num'>81.01%</td><td class='gap'>còn thiếu 3.99% (~54 lượt) để chạm mốc 85%</td></tr><tr><td>186 DTH</td><td>Tống Xuân Quyền GDKV</td><td class='num'>80.63%</td><td class='gap'>còn thiếu 4.37% (~69 lượt) để chạm mốc 85%</td></tr><tr><td>382 NT</td><td>Đoàn Trung Đức GDKV</td><td class='num'>80.47%</td><td class='gap'>còn thiếu 4.53% (~106 lượt) để chạm mốc 85%</td></tr><tr><td>346 KT</td><td>Phan Thị Hồng Gấm GDKV</td><td class='num'>80.38%</td><td class='gap'>còn thiếu 4.62% (~44 lượt) để chạm mốc 85%</td></tr><tr><td>29 HB</td><td>Nguyễn Việt Cường GDKV</td><td class='num'>80.03%</td><td class='gap'>còn thiếu 4.97% (~61 lượt) để chạm mốc 85%</td></tr></tbody></table>
+</div>
+</div><div class="panel" id="panel3">
+<p class="note">Điều kiện: vào top tỷ lệ chờ lâu thấp nhất, ĐỒNG THỜI tỷ lệ feedback tiêu cực (bill 1-2-3 sao) dưới 0,28%.</p>
+<div class="card">
+  <h3>Top 1 salon chờ lâu thấp nhất <span class="tag">2.000.000đ</span></h3>
+  <table><thead><tr><th>Salon</th><th>Tỷ lệ chờ lâu</th><th>%Feedback tiêu cực</th><th>Thưởng</th></tr></thead>
+  <tbody><tr><td>80 PL BD</td><td class='num'>5.64%</td><td class='num'>0.0895%</td><td class='bonus'>2.000.000đ</td></tr></tbody></table>
+</div>
+<div class="card">
+  <h3>Top 2–5 salon tiếp theo <span class="tag">1.000.000đ/salon</span></h3>
+  <table><thead><tr><th>Salon</th><th>Tỷ lệ chờ lâu</th><th>%Feedback tiêu cực</th><th>Thưởng</th></tr></thead>
+  <tbody><tr><td>382 NT</td><td class='num'>7.257%</td><td class='num'>0.2002%</td><td class='bonus'>1.000.000đ</td></tr><tr><td>103 TN</td><td class='num'>7.403%</td><td class='num'>0.1473%</td><td class='bonus'>1.000.000đ</td></tr><tr><td>116 TK</td><td class='num'>7.764%</td><td class='num'>0.207%</td><td class='bonus'>1.000.000đ</td></tr><tr><td>10 TP</td><td class='num'>8.935%</td><td class='num'>0.0%</td><td class='bonus'>1.000.000đ</td></tr></tbody></table>
+</div>
+<div class="card near">
+  <h3>⏳ Sắp đạt — đủ điều kiện feedback, đang xếp hạng 6–10</h3>
+  <table><thead><tr><th>Salon</th><th>Tỷ lệ chờ lâu</th><th>%Feedback tiêu cực</th><th>Còn thiếu</th></tr></thead>
+  <tbody><tr><td>312 LVS</td><td class='num'>9.579%</td><td class='num'>0.2441%</td><td class='gap'>đủ điều kiện feedback, còn thiếu 0.644đ % chờ lâu để vào top 5</td></tr><tr><td>186 DTH</td><td class='num'>9.733%</td><td class='num'>0.2229%</td><td class='gap'>đủ điều kiện feedback, còn thiếu 0.798đ % chờ lâu để vào top 5</td></tr><tr><td>483 TN</td><td class='num'>9.834%</td><td class='num'>0.0%</td><td class='gap'>đủ điều kiện feedback, còn thiếu 0.899đ % chờ lâu để vào top 5</td></tr><tr><td>90 NH</td><td class='num'>9.886%</td><td class='num'>0.2273%</td><td class='gap'>đủ điều kiện feedback, còn thiếu 0.951đ % chờ lâu để vào top 5</td></tr><tr><td>575 AC</td><td class='num'>10.377%</td><td class='num'>0.0858%</td><td class='gap'>đủ điều kiện feedback, còn thiếu 1.442đ % chờ lâu để vào top 5</td></tr></tbody></table>
+</div>
+<div class="card near">
+  <h3>⏳ Sắp đạt — chờ lâu tốt nhưng feedback tiêu cực vượt 0,28%</h3>
+  <table><thead><tr><th>Salon</th><th>Tỷ lệ chờ lâu</th><th>%Feedback tiêu cực</th><th>Còn thiếu</th></tr></thead>
+  <tbody><tr><td>8 CVL</td><td class='num'>5.826%</td><td class='num'>0.3427%</td><td class='gap'>chờ lâu tốt nhưng feedback tiêu cực vượt ngưỡng 0,28% thêm 0.0627%</td></tr><tr><td>237 NTT</td><td class='num'>6.373%</td><td class='num'>0.5271%</td><td class='gap'>chờ lâu tốt nhưng feedback tiêu cực vượt ngưỡng 0,28% thêm 0.2471%</td></tr><tr><td>29 HB</td><td class='num'>6.984%</td><td class='num'>0.388%</td><td class='gap'>chờ lâu tốt nhưng feedback tiêu cực vượt ngưỡng 0,28% thêm 0.108%</td></tr><tr><td>1371 PVT</td><td class='num'>7.168%</td><td class='num'>0.3497%</td><td class='gap'>chờ lâu tốt nhưng feedback tiêu cực vượt ngưỡng 0,28% thêm 0.0697%</td></tr><tr><td>420 HTP</td><td class='num'>8.646%</td><td class='num'>0.6032%</td><td class='gap'>chờ lâu tốt nhưng feedback tiêu cực vượt ngưỡng 0,28% thêm 0.3232%</td></tr><tr><td>401/1 NDT</td><td class='num'>8.957%</td><td class='num'>0.4908%</td><td class='gap'>chờ lâu tốt nhưng feedback tiêu cực vượt ngưỡng 0,28% thêm 0.2108%</td></tr><tr><td>255 NAN</td><td class='num'>9.32%</td><td class='num'>0.5592%</td><td class='gap'>chờ lâu tốt nhưng feedback tiêu cực vượt ngưỡng 0,28% thêm 0.2792%</td></tr><tr><td>145 THT</td><td class='num'>9.891%</td><td class='num'>0.2967%</td><td class='gap'>chờ lâu tốt nhưng feedback tiêu cực vượt ngưỡng 0,28% thêm 0.0167%</td></tr><tr><td>1180 QT</td><td class='num'>9.893%</td><td class='num'>0.4768%</td><td class='gap'>chờ lâu tốt nhưng feedback tiêu cực vượt ngưỡng 0,28% thêm 0.1968%</td></tr><tr><td>363 LNQ TN</td><td class='num'>10.408%</td><td class='num'>0.7032%</td><td class='gap'>chờ lâu tốt nhưng feedback tiêu cực vượt ngưỡng 0,28% thêm 0.4232%</td></tr></tbody></table>
+</div>
+</div>
+
+<footer>
+  Số liệu tính đến ngày 17/08/2026, mang tính tham khảo giữa kỳ — danh sách "Đã đạt" có thể thay đổi đến hết tháng.<br>
+  "Sắp đạt" là gợi ý để salon/NV biết còn thiếu bao nhiêu mới chạm mốc thưởng gần nhất, không phải cam kết cuối cùng.
+</footer>
+</div>
+<script>
+function showTab(i) {
+  document.querySelectorAll('.tabbtn').forEach((b,idx)=>b.classList.toggle('active', idx===i));
+  document.querySelectorAll('.panel').forEach((p,idx)=>p.classList.toggle('active', idx===i));
+}
+</script>
+</body>
+</html>
